@@ -27,9 +27,21 @@ $this->params['breadcrumbs'][] = $this->title;
             'id',
             'nm_satuan',
 
-            ['class' => 'yii\grid\ActionColumn'],
+            ['class' => 'yii\grid\ActionColumn',
+                'header' => 'Action',
+                'template' => '{update}{delete}',
+                'buttons'=>[
+                    'update'=>function ($url, $model) {
+                        return Html::a('Update', ['update', 'id' => (string)$model->id], ['class' => 'btn btn-sm btn-warning']);
+                    },
+                    'delete'=>function ($url, $model) {
+                        return Html::a('Delete', ['delete', 'id' => (string)$model->id], ['class' => 'btn btn-sm btn-danger', 'onclick' => 'js:return confirm("Delete this data ?");']);
+                    },
+                ],
+            ],
         ],
     ]); ?>
+
 
     <?php Pjax::end(); ?>
 

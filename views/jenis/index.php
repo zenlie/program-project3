@@ -3,17 +3,11 @@
 use yii\helpers\Html;
 use yii\grid\GridView;
 use yii\widgets\Pjax;
-/* @var $this yii\web\View */
-/* @var $searchModel app\models\search\JenisSearch */
-/* @var $dataProvider yii\data\ActiveDataProvider */
 
 $this->title = 'Jenis';
 $this->params['breadcrumbs'][] = $this->title;
 ?>
 <div class="jenis-index">
-
-    <h1><?= Html::encode($this->title) ?></h1>
-
     <p>
         <?= Html::a('Create Jenis', ['create'], ['class' => 'btn btn-success']) ?>
     </p>
