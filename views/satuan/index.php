@@ -3,16 +3,13 @@
 use yii\helpers\Html;
 use yii\grid\GridView;
 use yii\widgets\Pjax;
-/* @var $this yii\web\View */
-/* @var $searchModel app\models\search\SatuanSearch */
-/* @var $dataProvider yii\data\ActiveDataProvider */
 
-$this->title = 'Satuans';
+$this->title = 'Satuan';
 $this->params['breadcrumbs'][] = $this->title;
 ?>
 <div class="satuan-index">
 
-    <h1><?= Html::encode($this->title) ?></h1>
+    <!-- <h1><?= Html::encode($this->title) ?></h1> -->
 
     <p>
         <?= Html::a('Create Satuan', ['create'], ['class' => 'btn btn-success']) ?>
