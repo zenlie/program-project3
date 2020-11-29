@@ -2,9 +2,6 @@
 
 use yii\helpers\Html;
 
-/* @var $this yii\web\View */
-/* @var $model app\models\Satuan */
-
 $this->title = 'Create Satuan';
 $this->params['breadcrumbs'][] = ['label' => 'Satuans', 'url' => ['index']];
 $this->params['breadcrumbs'][] = $this->title;
