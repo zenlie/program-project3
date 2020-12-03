@@ -9,30 +9,10 @@ use yii\web\Controller;
 use yii\web\NotFoundHttpException;
 use yii\filters\VerbFilter;
 
-/**
- * JenisController implements the CRUD actions for Jenis model.
- */
 class JenisController extends Controller
 {
-    /**
-     * {@inheritdoc}
-     */
-    public function behaviors()
-    {
-        return [
-            'verbs' => [
-                'class' => VerbFilter::className(),
-                'actions' => [
-                    'delete' => ['POST'],
-                ],
-            ],
-        ];
-    }
+    public $modelClass = 'app\models\Jenis';
 
-    /**
-     * Lists all Jenis models.
-     * @return mixed
-     */
     public function actionIndex()
     {
         $searchModel = new JenisSearch();
@@ -44,12 +24,6 @@ class JenisController extends Controller
         ]);
     }
 
-    /**
-     * Displays a single Jenis model.
-     * @param integer $id
-     * @return mixed
-     * @throws NotFoundHttpException if the model cannot be found
-     */
     public function actionView($id)
     {
         return $this->render('view', [
@@ -57,11 +31,6 @@ class JenisController extends Controller
         ]);
     }
 
-    /**
-     * Creates a new Jenis model.
-     * If creation is successful, the browser will be redirected to the 'view' page.
-     * @return mixed
-     */
     public function actionCreate()
     {
         $model = new Jenis();
@@ -75,13 +44,6 @@ class JenisController extends Controller
         ]);
     }
 
-    /**
-     * Updates an existing Jenis model.
-     * If update is successful, the browser will be redirected to the 'view' page.
-     * @param integer $id
-     * @return mixed
-     * @throws NotFoundHttpException if the model cannot be found
-     */
     public function actionUpdate($id)
     {
         $model = $this->findModel($id);
@@ -95,13 +57,6 @@ class JenisController extends Controller
         ]);
     }
 
-    /**
-     * Deletes an existing Jenis model.
-     * If deletion is successful, the browser will be redirected to the 'index' page.
-     * @param integer $id
-     * @return mixed
-     * @throws NotFoundHttpException if the model cannot be found
-     */
     public function actionDelete($id)
     {
         $this->findModel($id)->delete();
@@ -109,13 +64,6 @@ class JenisController extends Controller
         return $this->redirect(['index']);
     }
 
-    /**
-     * Finds the Jenis model based on its primary key value.
-     * If the model is not found, a 404 HTTP exception will be thrown.
-     * @param integer $id
-     * @return Jenis the loaded model
-     * @throws NotFoundHttpException if the model cannot be found
-     */
     protected function findModel($id)
     {
         if (($model = Jenis::findOne($id)) !== null) {

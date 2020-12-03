@@ -2,13 +2,11 @@
 
 use yii\helpers\Html;
 
-$this->title = 'Create Satuan';
-$this->params['breadcrumbs'][] = ['label' => 'Satuans', 'url' => ['index']];
+$this->title = 'Tambah Satuan';
+$this->params['breadcrumbs'][] = ['label' => 'Satuan', 'url' => ['index']];
 $this->params['breadcrumbs'][] = $this->title;
 ?>
 <div class="satuan-create">
-
-    <h1><?= Html::encode($this->title) ?></h1>
 
     <?= $this->render('_form', [
         'model' => $model,
