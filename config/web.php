@@ -42,15 +42,10 @@ $config = [
                 ],
             ],
         ],
-        'db' => $db,
-        /*
-        'urlManager' => [
-            'enablePrettyUrl' => true,
-            'showScriptName' => false,
-            'rules' => [
-            ],
-        ],
-        */
+        'db' => $db['mysqldb'],
+        'mysqldb' => $db['mysqldb'],
+        'mongodb' => $db['mongodb'],
+
         'urlManager' => [
             'class' => 'yii\web\UrlManager',
             // Disable index.php

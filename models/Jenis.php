@@ -6,6 +6,11 @@ use Yii;
 
 class Jenis extends \yii\db\ActiveRecord
 {
+    public static function getDb()
+    {
+        return Yii::$app->get('mysqldb');
+    }
+
     public static function tableName()
     {
         return 'jenis';

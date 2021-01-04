@@ -4,9 +4,14 @@ namespace app\models;
 
 use Yii;
 
-class Satuan extends \yii\db\ActiveRecord
+class Satuan extends \yii\mongodb\ActiveRecord
 {
-    public static function tableName()
+    public static function getDb()
+    {
+        return Yii::$app->get('mongodb');
+    }
+
+    public static function collectionName()
     {
         return 'satuan';
     }
@@ -14,21 +19,27 @@ class Satuan extends \yii\db\ActiveRecord
     public function rules()
     {
         return [
+            [['_id'], 'safe'],
             [['nm_satuan'], 'required'],
             [['nm_satuan'], 'string', 'max' => 100],
         ];
     }
 
+    public function attributes()
+    {
+        return ['_id','nm_satuan'];
+    }
+
     public function attributeLabels()
     {
         return [
-            'id' => 'ID',
+            '_id' => 'ID',
             'nm_satuan' => 'Nama Satuan',
         ];
     }
 
-    public function getBarangs()
-    {
-        return $this->hasMany(Barang::className(), ['satuan_id' => 'id']);
-    }
+    // public function getBarangs()
+    // {
+    //     return $this->hasMany(Barang::className(), ['satuan_id' => 'id']);
+    // }
 }

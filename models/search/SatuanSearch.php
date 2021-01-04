@@ -17,7 +17,7 @@ class SatuanSearch extends Satuan
     public function rules()
     {
         return [
-            [['id'], 'integer'],
+            // [['id'], 'integer'],
             [['nm_satuan'], 'safe'],
         ];
     }
@@ -57,9 +57,9 @@ class SatuanSearch extends Satuan
         }
 
         // grid filtering conditions
-        $query->andFilterWhere([
-            'id' => $this->id,
-        ]);
+        // $query->andFilterWhere([
+        //     'id' => $this->id,
+        // ]);
 
         $query->andFilterWhere(['like', 'nm_satuan', $this->nm_satuan]);
 
