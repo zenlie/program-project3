@@ -3,13 +3,9 @@
 use yii\helpers\Html;
 use yii\widgets\ActiveForm;
 
-/* @var $this yii\web\View */
-/* @var $model app\models\Jenis */
-/* @var $form yii\widgets\ActiveForm */
 ?>
 
 <div class="jenis-form">
-
     <?php $form = ActiveForm::begin(); ?>
 
     <?= $form->field($model, 'nm_jenis')->textInput(['maxlength' => true]) ?>

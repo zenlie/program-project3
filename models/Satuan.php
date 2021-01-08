@@ -4,53 +4,42 @@ namespace app\models;
 
 use Yii;
 
-/**
- * This is the model class for table "satuan".
- *
- * @property int $id
- * @property string $nm_satuan
- *
- * @property Barang[] $barangs
- */
-class Satuan extends \yii\db\ActiveRecord
+class Satuan extends \yii\mongodb\ActiveRecord
 {
-    /**
-     * {@inheritdoc}
-     */
-    public static function tableName()
+    public static function getDb()
+    {
+        return Yii::$app->get('mongodb');
+    }
+
+    public static function collectionName()
     {
         return 'satuan';
     }
 
-    /**
-     * {@inheritdoc}
-     */
     public function rules()
     {
         return [
+            [['_id'], 'safe'],
             [['nm_satuan'], 'required'],
             [['nm_satuan'], 'string', 'max' => 100],
         ];
     }
 
-    /**
-     * {@inheritdoc}
-     */
+    public function attributes()
+    {
+        return ['_id','nm_satuan'];
+    }
+
     public function attributeLabels()
     {
         return [
-            'id' => 'ID',
-            'nm_satuan' => 'Nm Satuan',
+            '_id' => 'ID',
+            'nm_satuan' => 'Nama Satuan',
         ];
     }
 
-    /**
-     * Gets query for [[Barangs]].
-     *
-     * @return \yii\db\ActiveQuery
-     */
-    public function getBarangs()
-    {
-        return $this->hasMany(Barang::className(), ['satuan_id' => 'id']);
-    }
+    // public function getBarangs()
+    // {
+    //     return $this->hasMany(Barang::className(), ['satuan_id' => 'id']);
+    // }
 }
